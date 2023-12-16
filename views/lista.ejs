@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/stylesheets/usuarios.css" />
+        <script src="/javascripts/interface_lista.js" defer></script>
+    </head>
+    <body>
+        <div class="painel" id="painelLista">
+            <header>
+                <h1 class="titulo"><%= header %></h1>
+            </header>
+            <header>
+                <h2 class="titulo">Usuários Cadastrados:</h2>
+            </header>
+            <table id="tabelaUsuarios">
+                <thead>
+                    <th>Id</th>
+                    <th>Login</th>
+                    <th>Nome</th>
+                    <th>Admin?</th>
+                    <th colspan="2">Ações</th>
+                </thead>
+                <% usuarios.forEach( usuario => { %>
+                <tr>
+                    <td><%= usuario.id %></td>
+                    <td><%= usuario.login %></td>
+                    <td><%= usuario.nome %></td>
+                    <% let texto; if (usuario.admin) { texto = 'Sim'; } else { texto = 'Não'; } %>
+                    <td><%= texto %></td>
+                    <% if (idAutenticado == usuario.id) { %>
+                    <td>
+                        <button class="small desabilitado">&#128395;</button>
+                    </td>
+                    <td>
+                        <button class="small desabilitado">&#128465;</button>
+                    </td>
+                    <% } else { let idEdit = 'btnEdit_' + usuario.id; let idDel = 'btnDel_' + usuario.id; %>
+                    <td>
+                        <button class="small" id="<%= idEdit %>">&#128395;</button>
+                    </td>
+                    <td>
+                        <button class="small" id="<%= idDel %>">&#128465;</button>
+                    </td>
+                    <% } %>
+                </tr>
+                <% }); %>
+            </table>
+            <div class="container">
+                <button id="btnNovo">Inserir Novo</button>
+                <%- separador %>
+                <a href="/perfil">Ver meu Perfil</a>
+                <%- separador %>
+                <a href="/">Sair</a>
+            </div>
+        </div>
+        <div class="painel flutuante oculto" id="painelForm">
+            <header>
+                <h3 class="titulo" id="tituloFlutuante">Inserir Novo Usuário:</h3>
+            </header>
+            <label for="login">Login:</label>
+            <input type="text" id="login" name="login" />
+            <br />
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" />
+            <br />
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" />
+            <br />
+
+            <label for="confirmacao">Confirmação:</label>
+            <input type="password" id="confirmacao" name="confirmacao" />
+            <br />
+
+            <input type="checkbox" id="admin" name="admin" />
+            <label for="admin">Super usuário</label>
+            <br />
+
+            <button id="btnCancelar">Cancelar</button>
+            <%- separador %>
+            <button id="btnInserir">Inserir Dados</button>
+            <button id="btnAtualizar" class="oculto">Atualizar Dados</button>
+        </div>
+    </body>
+</html>

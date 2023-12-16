@@ -1,0 +1,180 @@
+* {
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+input {
+    padding: 0.3rem;
+    margin: 0.5rem;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+
+a,
+button {
+    text-decoration: none;
+    padding: 0.3rem 1rem;
+    background-color: #2196f3;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.4s;
+    height: 30px;
+}
+
+button:hover {
+    background-color: #094271;
+}
+
+button.small {
+    height: 25px;
+    font-size: 0.8rem;
+}
+
+button.desabilitado {
+    background-color: #999999;
+    color: #eee;
+}
+
+table,
+table th,
+table td {
+    border: 1px solid #000;
+    padding: 0.3rem;
+}
+
+table {
+    width: 500px;
+    border-collapse: collapse;
+    margin-bottom: 0.4rem;
+    margin-top: 0.4rem;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table tr {
+    background-color: #fff;
+    text-align: left;
+}
+
+table thead,
+table th {
+    background-color: #2196f3;
+    color: #fff;
+    text-align: center;
+}
+
+table tr:hover {
+    background-color: #c3c3c3;
+}
+
+.painel {
+    max-width: 550px;
+    margin: 3rem auto;
+    /* faz com que o painel centralize */
+    background-color: #c3c3c3;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.esmaecido {
+    opacity: 0.1;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.esmaecido::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 5;
+    cursor: not-allowed;
+}
+
+.flutuante {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
+}
+
+.flutuante label {
+    /* Alinhamento dos rótulos */
+    display: inline-block;
+    width: 150px; /* ajuste conforme necessário */
+    text-align: right;
+    margin-right: 10px;
+}
+
+.flutuante input[type="text"],
+.flutuante input[type="password"] {
+    /* Ajuste dos campos de texto e senha */
+    width: 150px; /* ajuste conforme necessário */
+}
+
+.flutuante input[type="checkbox"] {
+    /* Adiciona estilo para o checkbox */
+    margin-right: 5px; /* Ajuste para aproximar o checkbox do seu rótulo */
+}
+
+.flutuante input[type="checkbox"] + label {
+    /* Estilo para o rótulo que segue diretamente um checkbox */
+    display: inline-block;
+    text-align: left;
+}
+
+.flutuante br {
+    /* Para melhor controle, considere usar margens em vez de <br> */
+    margin-bottom: 10px;
+}
+
+.painel.flutuante button {
+    /* Ajustes para os botões */
+    margin-top: 10px;
+    display: inline-block; /* ou inline-block, conforme necessário */
+}
+
+.painel.flutuante button.oculto {
+    display: none;
+}
+
+.titulo {
+    text-align: center;
+    padding: 0 1rem 1rem 1rem;
+    margin-bottom: 0.5rem;
+    display: inline;
+}
+
+header {
+    border-bottom: 1px solid #fff;
+    padding: 0.5rem;
+    justify-content: space-around;
+}
+
+.container {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    vertical-align: middle;
+    margin-top: 0;
+}
+
+.rotulo {
+    padding: 0.3rem;
+    vertical-align: middle;
+}
+
+.oculto {
+    display: none;
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/stylesheets/usuarios.css" />
+        <script src="/javascripts/interface_perfil.js" defer></script>
+    </head>
+    <body>
+        <div class="painel">
+            <header>
+                <h1 class="titulo"><%= header %></h1>
+            </header>
+            <table>
+                <thead>
+                    <th>Login</th>
+                    <th>Nome</th>
+                    <th>Admin?</th>
+                </thead>
+                <tr>
+                    <td id="nome"><%= data.nome %></td>
+                    <td><%= data.login %></td>
+                    <% let texto; if (data.admin) { texto = 'Sim'; } else { texto = 'Não'; } %>
+                    <td><%= texto %></td>
+                </tr>
+            </table>
+            <div class="container">
+                <% if (data.admin) { %>
+                <a href="/lista">Listar Usuários</a><%- separador %> <% } %>
+                <button id="btnSelfEdit">Editar Meus Dados</button><%- separador %><a href="/">Sair</a>
+            </div>
+        </div>
+        <div class="painel oculto" id="painelEdit">
+            <header>
+                <h3 class="titulo">Editando Dados Pessoais:</h3>
+            </header>
+            <label for="novo_nome"
+                >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nome:</label
+            ><input type="text" id="novo_nome" name="novo_nome" value="<%= data.nome %>" /><br />
+            <label for="senha_atual">&nbsp;&nbsp;&nbsp;Senha atual:</label
+            ><input type="password" id="senha_atual" name="senha_atual" /><br />
+            <label for="nova_senha">&nbsp;&nbsp;&nbsp;Nova senha:</label
+            ><input type="password" id="nova_senha" name="nova_senha" /><br />
+            <label for="confirmacao">&nbsp;&nbsp;Confirmação:</label
+            ><input type="password" id="confirmacao" name="confirmacao" /><br />
+            <button id="btnCancelar">Cancelar</button><%- separador %><button id="btnAtualizar">Atualizar Dados</button>
+        </div>
+    </body>
+</html>

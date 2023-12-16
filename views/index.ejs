@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/stylesheets/usuarios.css" />
+    </head>
+    <body>
+        <div class="painel">
+            <header>
+                <h1 class="titulo"><%= header %></h1>
+            </header>
+            <form id="entrar" class="container" action="/autentica" method="post">
+                <label for="login" class="rotulo">Usuário:</label>
+                <input type="text" id="login" name="login" placeholder="Digite um texto..." /><br />
+                <label for="senha" class="rotulo">Senha:</label>
+                <input type="password" id="senha" name="senha" /><br />
+                <button class="inserir" id="btnInserir">Inserir</button>
+            </form>
+        </div>
+    </body>
+</html>
